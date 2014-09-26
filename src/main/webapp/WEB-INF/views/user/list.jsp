@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Usuários</title>
-		<style type="text/css">
-			@IMPORT url("resources/css/bootstrap.min.css");
-		</style>
-		<script type="text/javascript" src="resources/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<table>
+<div>
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<spring:message code="users.list.table.tile"/>
+		</div>
+		<table class="table table-condensed table-striped">
 			<thead>
 				<tr>
 					<td>Nome</td>
@@ -31,5 +26,5 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	</body>
-</html>
+	</div>
+</div>

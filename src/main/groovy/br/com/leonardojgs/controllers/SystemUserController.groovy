@@ -19,7 +19,7 @@ class SystemUserController {
 	
 	@RequestMapping
 	def list(){
-		def view = new ModelAndView("user/list")
+		def view = new ModelAndView("users-list")
 		view.addObject("systemUsers", systemUserRepository.findAll())
 		view
 	}

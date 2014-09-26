@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+#div-footer{
+	padding: 10px;
+	background-color: #101010;
+	border-radius: 4px;
+	color: gray;
+	text-align: center;
+}
+
+
+
+
+.panel-heading{
+	font-size: 1.4em !important;
+}

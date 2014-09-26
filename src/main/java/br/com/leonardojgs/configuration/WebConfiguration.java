@@ -9,30 +9,35 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.JstlView;
-
-import com.lyncode.jtwig.mvc.JtwigViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
 
 @Configuration
 @EnableWebMvc @EnableAsync
 @ComponentScan(basePackages = "br.com.leonardojgs.*")
 public class WebConfiguration extends WebMvcConfigurerAdapter {
-
-	private static final String VIEW_RESOLVER_PREFIX = "/WEB-INF/views/";
-	private static final String VIEW_RESOLVER_SUFFIX = ".jsp";
-
+	
 	public WebConfiguration() {
 		System.out.println("WEB CONFIG - OK");
 	}
 
 	@Bean
 	public ViewResolver viewResolver() {
-		JtwigViewResolver viewResolver = new JtwigViewResolver();
-		viewResolver.setViewClass(JstlView.class);
-		viewResolver.setPrefix(VIEW_RESOLVER_PREFIX);
-		viewResolver.setSuffix(VIEW_RESOLVER_SUFFIX);
-		return viewResolver;
+		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
+        viewResolver.setViewClass(TilesView.class);
+        return viewResolver;
 	}
+	
+	@Bean
+    public TilesConfigurer tilesConfigurer() {
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        tilesConfigurer.setDefinitions(new String[]{
+                "/WEB-INF/tiles/config.xml"
+        });
+        tilesConfigurer.setCheckRefresh(true);
+        return tilesConfigurer;
+    }
 	
 	@Bean
     public CommonsMultipartResolver multipartResolver() {
