@@ -9,22 +9,12 @@ import javax.validation.constraints.NotNull
 import org.hibernate.validator.constraints.NotEmpty
 
 @Entity
-class SystemUser {
-
+class TaskLevel {
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id
 	
 	@NotNull @NotEmpty
 	String name
-	
-	@NotNull @NotEmpty
-	String username
-	
-	@NotNull @NotEmpty
-	String password
-	
-	@NotNull
-	Calendar registrationDatetime
-	
 	
 }

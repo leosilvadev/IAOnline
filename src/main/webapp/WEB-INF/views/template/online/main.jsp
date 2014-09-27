@@ -23,6 +23,9 @@
 			<div id="main-header">
 				<tiles:insertAttribute name="header"/>
 			</div>
+			<div id="main-menu">
+				<tiles:insertAttribute name="menu"/>
+			</div>
 			<div id="main-content">
 				<tiles:insertAttribute name="content"/>
 			</div>
