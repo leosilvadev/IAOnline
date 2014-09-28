@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <div>
-	<div class="panel panel-success">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<spring:message code="users.list.table.tile"/>
 		</div>

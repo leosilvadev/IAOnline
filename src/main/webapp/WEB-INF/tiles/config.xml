@@ -14,12 +14,15 @@
 	<!-- Online views -->
 	<definition name="online-template" template="/WEB-INF/views/template/online/main.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/online/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/template/online/menu.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/online/footer.jsp" />
 	</definition>
 	
 	<definition name="tasks-list" extends="online-template">
 		<put-attribute name="content" value="/WEB-INF/views/task/list.jsp" />
 	</definition>
+	
+	<definition name="tasks-table-list" template="/WEB-INF/views/task/table-list.jsp"/>
 	
 	<definition name="users-list" extends="online-template">
 		<put-attribute name="content" value="/WEB-INF/views/user/list.jsp" />

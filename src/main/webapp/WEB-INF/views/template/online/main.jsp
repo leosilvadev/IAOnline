@@ -9,26 +9,34 @@
 <html>
 	<head>
 		<title><spring:message code="app.offline.title"/></title>
+   		<meta charset="utf-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style type="text/css">
-			@IMPORT url("resources/css/bootstrap.min.css");
+			@IMPORT url("resources/css/libs/bootstrap.min.css");
 			@IMPORT url("resources/css/iaonline.css");
+			@IMPORT url("resources/css/main_online.css");
 		</style>
-		<script type="text/javascript" src="resources/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="resources/js/angular/angular.min.js"></script>
+		<script type="text/javascript" src="resources/js/libs/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="resources/js/libs/bootstrap.min.js"></script>
+		<script type="text/javascript" src="resources/js/libs/angular/angular.min.js"></script>
+		<script type="text/javascript" src="resources/js/libs/angular/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="resources/js/iaonline.app.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div id="main-header">
 				<tiles:insertAttribute name="header"/>
 			</div>
-			<div id="main-menu">
-				<tiles:insertAttribute name="menu"/>
+			
+			<div id="main-principal">
+				<div id="main-menu">
+					<tiles:insertAttribute name="menu"/>
+				</div>
+				<div id="main-content">
+					<tiles:insertAttribute name="content"/>
+				</div>
 			</div>
-			<div id="main-content">
-				<tiles:insertAttribute name="content"/>
-			</div>
+			
 			<div id="main-footer">
 				<tiles:insertAttribute name="footer"/>
 			</div>

@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.invisible{
+	display: none;
+}
+
 #div-footer{
 	padding: 10px;
 	background-color: #101010;
@@ -9,8 +13,20 @@
 }
 
 
-
-
-.panel-heading{
-	font-size: 1.4em !important;
+#row_nothing_found{
+	text-align: right;
 }
+
+
+
+
+.modal-header{
+	background-color: #f8f8f8;
+	border-color:#e7e7e7;
+	font-size: 1.8em;
+	color: #777;
+}
+
+.panel-heading{ font-size: 1.4em !important; }
+
+.panel-footer{ text-align: right; }

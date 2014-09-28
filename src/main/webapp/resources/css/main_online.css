@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+#main-header{
+	width: 100%;
+	float: left;
+}
+
+.navbar{ margin-bottom: 5px; }
+
+#main-principal{
+	width: 100%;
+	float: left;
+}
+
+#main-menu {
+	background-color: #f9f9f9;
+	min-width: 200px;
+	float: left;
+}
+
+#main-content{
+	width: 80%;
+	min-width: 400px;
+	float: right;
+}
+
+#main-footer{
+	width: 100%;
+	float: left;
+}

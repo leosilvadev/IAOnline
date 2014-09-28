@@ -13,34 +13,34 @@ import javax.validation.constraints.NotNull
 import org.hibernate.validator.constraints.NotEmpty
 
 @Entity
-abstract class Task {
+class Task {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id
 	
-	@NotNull @NotEmpty
+	@NotNull(message="task.name.notnull") @NotEmpty(message="task.name.notempty")
 	String name
 	
 	@Column(length=2048)
-	@NotNull @NotEmpty
+	@NotNull(message="task.description.notnull") @NotEmpty(message="task.description.notempty")
 	String description
 	
 	@NotNull @OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="task")
 	Set<TaskComment> comments = new HashSet<>()
 	
-	@NotNull @ManyToOne
+	@NotNull(message="task.priority.notnull") @ManyToOne
 	TaskPriority taskPriority
 	
-	@NotNull @ManyToOne
+	@NotNull(message="task.level.notnull") @ManyToOne
 	TaskLevel taskLevel
 	
-	@NotNull @ManyToOne
+	@NotNull(message="task.status.notnull") @ManyToOne
 	TaskStatus taskStatus
 	
-	@NotNull @ManyToOne
+	@NotNull(message="task.reporter.notnull") @ManyToOne
 	SystemUser reporterUser
 	
-	@NotNull @ManyToOne
+	@ManyToOne
 	SystemUser assignedUser
-	
+		
 }
