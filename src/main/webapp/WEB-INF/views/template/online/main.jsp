@@ -29,11 +29,17 @@
 			</div>
 			
 			<div id="main-principal">
-				<div id="main-menu">
-					<tiles:insertAttribute name="menu"/>
-				</div>
-				<div id="main-content">
-					<tiles:insertAttribute name="content"/>
+				<div class="row">
+					<div class="col-sm-2" style="padding-right: 5px;">
+						<div id="main-menu">
+							<tiles:insertAttribute name="menu"/>
+						</div>
+					</div>
+					<div class="col-sm-10" style="padding-left: 5px;">
+						<div id="main-content">
+							<tiles:insertAttribute name="content"/>
+						</div>
+					</div>
 				</div>
 			</div>
 			

@@ -12,10 +12,11 @@
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only"></span>
 				</button>
+				<span class="glyphicon glyphicon-info-sign"></span>
 				<spring:message code="tasks.modalsave.title"/>
 			</div>
 			<div class="modal-body">
-				<div class="alert alert-danger fade in" role="alert" ng-show="hasCreationMessages">
+				<div class="alert alert-danger fade in" role="alert" ng-show="errorSaveTask">
 					<button type="button" class="close" ng-click="hideTaskCreationMessages()">
 						<span aria-hidden="true">×</span><span class="sr-only"></span>
 					</button>
@@ -26,26 +27,26 @@
 						<label for="txt-name">
 							<spring:message code="tasks.modalsave.name"/>
 						</label>
-						<input class="form-control" id="txt-name" ng-model="task.name">
+						<input class="form-control" id="txt-name" ng-model="task.name" required="required">
 					</div>
 					
 					<div class="form-group">
 						<label for="txt-description">
 							<spring:message code="tasks.modalsave.description"/>
 						</label>
-						<input class="form-control" id="txt-description" ng-model="task.description">
+						<input class="form-control" id="txt-description" ng-model="task.description" required="required">
 					</div>
 					
 					<div class="form-group">
 						<label for="sel-priority">
 							<spring:message code="tasks.modalsave.priority"/>
 						</label>
-						<select id="sel-priority" ng-model="task.priority" class="form-control">
+						<select id="sel-priority" ng-model="task.priority" class="form-control" required="required">
 							<option value="0">
 								<spring:message code="tasks.modalsave.defaultpriority"/>
 							</option>
-							<c:forEach var="priority" items="${priorities}">
-								<option value="${priority.id}">${priority.name}</option>
+							<c:forEach var="item" items="${priorities}">
+								<option value="${item.id}">${item.priority}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -54,12 +55,12 @@
 						<label for="sel-level">
 							<spring:message code="tasks.modalsave.levels"/>
 						</label>
-						<select id="sel-level" ng-model="task.level" class="form-control">
+						<select id="sel-level" ng-model="task.level" class="form-control" required="required">
 							<option value="0">
 								<spring:message code="tasks.modalsave.defaultlevel"/>
 							</option>
-							<c:forEach var="level" items="${levels}">
-								<option value="${level.id}">${level.name}</option>
+							<c:forEach var="item" items="${levels}">
+								<option value="${item.id}">${item.level}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -67,9 +68,11 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<span class="glyphicon glyphicon-remove"></span>
 					<spring:message code="tasks.modalsave.btn.close"/>
 				</button>
 				<button id="btn-create-task" type="button" class="btn btn-primary" ng-click="createTask()">
+					<span class="glyphicon glyphicon-ok"></span>
 					<spring:message code="tasks.modalsave.btn.save"/>
 				</button>
 			</div>

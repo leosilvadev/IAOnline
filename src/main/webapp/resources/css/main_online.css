@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+a {
+	color: rgb(60, 60, 60);
+}
+
+a:HOVER{
+	color: rgb(131, 131, 131);
+}
+
 #main-header{
 	width: 100%;
 	float: left;
@@ -14,12 +22,15 @@
 
 #main-menu {
 	background-color: #f9f9f9;
-	min-width: 200px;
+	min-width: 100%;
 	float: left;
+	border: #ddd solid 1px;
+	border-radius: 5px;
+	text-align: center;
 }
 
 #main-content{
-	width: 80%;
+	width: 100%;
 	min-width: 400px;
 	float: right;
 }

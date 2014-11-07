@@ -15,6 +15,6 @@ class TaskLevel {
 	Long id
 	
 	@NotNull @NotEmpty
-	String name
+	String level
 	
 }

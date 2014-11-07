@@ -10,11 +10,13 @@
 	<ul class="nav nav-pills nav-stacked">
 		<li>
 			<a href="users">
+				<span class="glyphicon glyphicon-user"></span>
 				<spring:message code="app.menu.users"/>
 			</a>
 		</li>
 		<li>
 			<a href="tasks">
+				<span class="glyphicon glyphicon-tasks"></span>
 				<spring:message code="app.menu.tasks"/>
 			</a>
 		</li>

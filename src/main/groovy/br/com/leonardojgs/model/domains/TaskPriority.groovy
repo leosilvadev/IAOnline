@@ -15,6 +15,6 @@ class TaskPriority {
 	Long id
 	
 	@NotNull @NotEmpty
-	String name
+	String priority
 	
 }

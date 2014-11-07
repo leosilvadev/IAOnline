@@ -1,8 +1,9 @@
 package br.com.leonardojgs.model.domains
 
-import javax.persistence.CascadeType;
+import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -29,18 +30,23 @@ class Task {
 	Set<TaskComment> comments = new HashSet<>()
 	
 	@NotNull(message="task.priority.notnull") @ManyToOne
-	TaskPriority taskPriority
+	TaskPriority priority
 	
 	@NotNull(message="task.level.notnull") @ManyToOne
-	TaskLevel taskLevel
+	TaskLevel level
 	
-	@NotNull(message="task.status.notnull") @ManyToOne
-	TaskStatus taskStatus
+	@NotNull(message="task.status.notnull")
+	TaskStatus status
 	
-	@NotNull(message="task.reporter.notnull") @ManyToOne
+//	@NotNull(message="task.reporter.notnull")
+	@ManyToOne
 	SystemUser reporterUser
 	
 	@ManyToOne
 	SystemUser assignedUser
+	
+	Task(){ status = TaskStatus.OPENED }
+	
+	enum TaskStatus{ OPENED, STARTED, PAUSED, RESOLVED, ABORTED }
 		
 }
