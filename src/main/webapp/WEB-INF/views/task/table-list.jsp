@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<table class="table table-condensed table-striped" data-ng-init="listTasks()">
+<table class="table table-condensed table-striped" data-ng-init="list()">
 	<thead>
 		<tr>
 			<td><spring:message code="tasks.list.table.column.name" /></td>
@@ -22,17 +22,17 @@
 			<tr ng-repeat="task in tasks">
 				<td>{{task.name}}</td>
 				<td>{{task.description}}</td>
-				<td>{{task.priority.priority}}</td>
-				<td>{{task.level.level}}</td>
+				<td>{{task.priorityLabel}}</td>
+				<td>{{task.levelLabel}}</td>
 				<td>{{task.reporterUser.name}}</td>
 				<td>{{task.assignedUser.name}}</td>
 				<td>
-					<a href="#" class="btn btn-default">
+					<a href="#" class="btn btn-default" ng-click="selectToEdit(task);">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
 				</td>
 				<td>
-					<a href="#" class="btn btn-danger" ng-click="confirmRemoveTask(task.id);">
+					<a href="#" class="btn btn-danger" ng-click="selectToRemove(task);">
 						<span class="glyphicon glyphicon-trash"></span>
 					</a>
 				</td>

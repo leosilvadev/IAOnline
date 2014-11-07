@@ -1,6 +1,6 @@
 app.controller('TaskController', function($scope, $http){
 	
-	$scope.listTasks = function(){
+	$scope.list = function(){
 		var requestURL = 'tasks/refresh';
 		var successCallback = function(response){
 			$scope.tasks = response.tasks;
@@ -9,47 +9,60 @@ app.controller('TaskController', function($scope, $http){
 		sendGet($http, requestURL, successCallback);
 	};
 	
-	$scope.newTask = function(){
+	$scope.openNew = function(){
 		$scope.hideTaskCreationMessages();
 		$scope.task = {'priority':0, 'level':0};
 		$('#modal-new-task').modal('show');
+		focusOnName();
 	};
 	
-	$scope.createTask = function(){
+	$scope.create = function(){
 		var requestURL = 'tasks';
 		var requestData = $.param($scope.task);
 		var successCallback = function(data){
-			$scope.successSaveTask = data;
+			$scope.successSave = data;
 			$('#modal-new-task').modal('hide');
-			$scope.listTasks();
+			$scope.list();
 		};
 		var errorCallback = function(data, status, headers, config){
-			$scope.errorSaveTask = data;
+			$scope.errorSave = data;
 		};
 		sendPost($http, requestURL, requestData, successCallback, errorCallback);
 	};
 	
 	$scope.hideTaskCreationMessages = function(){
-		$scope.errorSaveTask = null;
+		$scope.errorSave = null;
+	};
+	
+	$scope.selectToEdit = function(task){
+		alert(JSON.stringify(task));
+		$scope.task = task;
+		$('#modal-new-task').modal('show');
 	};
 
-	$scope.confirmRemoveTask = function(id){
-		$scope.removeId = id;
+	$scope.selectToRemove = function(task){
+		$scope.task = task;
 		$('#modal-remove-task').modal('show');
-		$scope.listTasks();
+		$scope.list();
 	};
 
-	$scope.removeTask = function(){
-		var taskId = $scope.removeId;
+	$scope.remove = function(){
+		var taskId = $scope.task.id;
 		var requestURL = 'tasks/'+taskId;
 		var successCallback = function(data){
 			$('#modal-remove-task').modal('hide');
-			$scope.listTasks();
+			$scope.list();
 		};
 		var errorCallback = function(data, status, headers, config){
 			alert("ERROR: "+data);
 		};
 		sendDelete($http, requestURL, successCallback, errorCallback);
+	};
+
+	function focusOnName(){
+		setTimeout(function(){
+			$('#txt-name').focus();
+		}, 1000);
 	};
 	
 });

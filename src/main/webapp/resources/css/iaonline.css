@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.btn-confirm{
+	width: 200px;
+}
+
+.btn-cancel{
+	width: 150px;
+}
+
 .table{
 	margin-bottom: 1px;
 }

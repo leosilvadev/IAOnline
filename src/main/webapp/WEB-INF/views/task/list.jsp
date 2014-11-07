@@ -15,7 +15,7 @@
 		<button type="button" class="close" ng-click="hideTaskCreationMessages()">
 			<span aria-hidden="true">×</span><span class="sr-only"></span>
 		</button>
-		{{successSaveTask}}
+		{{successSave}}
 	</div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -25,8 +25,8 @@
 			<jsp:include page="table-list.jsp"/>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-primary" ng-click="newTask()">
-				<span class="glyphicon glyphicon-floppy-disk"></span>
+			<a class="btn btn-primary" ng-click="openNew()">
+				<span class="glyphicon glyphicon glyphicon-plus"></span>
 				Cadastrar tarefa
 			</a>
 		</div>

@@ -23,7 +23,7 @@
 					<span class="glyphicon glyphicon-remove"></span>
 					<spring:message code="tasks.modalremove.btn.close"/>
 				</button>
-				<button id="btn-create-task" type="button" class="btn btn-primary" ng-click="removeTask()">
+				<button id="btn-create-task" type="button" class="btn btn-primary" ng-click="remove();">
 					<span class="glyphicon glyphicon-ok"></span>
 					<spring:message code="tasks.modalremove.btn.confirm"/>
 				</button>

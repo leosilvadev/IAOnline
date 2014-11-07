@@ -16,11 +16,11 @@
 				<spring:message code="tasks.modalsave.title"/>
 			</div>
 			<div class="modal-body">
-				<div class="alert alert-danger fade in" role="alert" ng-show="errorSaveTask">
+				<div class="alert alert-danger fade in" role="alert" ng-show="errorSave">
 					<button type="button" class="close" ng-click="hideTaskCreationMessages()">
 						<span aria-hidden="true">×</span><span class="sr-only"></span>
 					</button>
-					{{errorSaveTask}}
+					{{errorSave}}
 				</div>
 				<form id="form-new-task">
 					<div class="form-group">
@@ -67,11 +67,11 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
+				<button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">
 					<span class="glyphicon glyphicon-remove"></span>
 					<spring:message code="tasks.modalsave.btn.close"/>
 				</button>
-				<button id="btn-create-task" type="button" class="btn btn-primary" ng-click="createTask()">
+				<button id="btn-create-task" type="button" class="btn btn-primary btn-confirm" ng-click="create()">
 					<span class="glyphicon glyphicon-ok"></span>
 					<spring:message code="tasks.modalsave.btn.save"/>
 				</button>

@@ -12,11 +12,18 @@ import br.com.leonardojgs.model.domains.Task.TaskStatus;
 
 @CompileStatic
 @TypeChecked
-class TaskItem {
+class TaskVO {
 
 	Long id
 	String name
 	String description
+	
+	Long priority
+	String priorityLabel
+	
+	Long level
+	String levelLabel
+	
 	TaskStatus status
 	
 }

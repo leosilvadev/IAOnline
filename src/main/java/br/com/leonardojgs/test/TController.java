@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.leonardojgs.model.vos.TaskList;
+import br.com.leonardojgs.model.vos.TaskListVO;
 import br.com.leonardojgs.services.TaskService;
 
 @RestController
@@ -20,10 +20,10 @@ public class TController {
 			method=RequestMethod.GET, 
 			value="/refresh"
 	)
-	public ResponseEntity<TaskList> listTasksTable(){
-		TaskList taskList = new TaskList();
+	public ResponseEntity<TaskListVO> listTasksTable(){
+		TaskListVO taskList = new TaskListVO();
 		taskList.addAll(taskService.findAll());
-		return new ResponseEntity<TaskList>(taskList, HttpStatus.OK);
+		return new ResponseEntity<TaskListVO>(taskList, HttpStatus.OK);
 	}
 
 }

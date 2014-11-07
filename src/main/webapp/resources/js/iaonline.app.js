@@ -1,5 +1,13 @@
 var app = angular.module('IAOnline',['ngSanitize']);
 
+function focus(){
+	return {
+		link: function(scope, element) {
+			element[0].focus();
+		}
+	};
+}
+
 function sendPost(requestHTTP, requestURL, requestData, successCallback, errorCallback){
 	requestHTTP({
 		method  : 'POST',

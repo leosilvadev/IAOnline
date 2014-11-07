@@ -23,7 +23,7 @@ import br.com.leonardojgs.model.domains.Task;
 import br.com.leonardojgs.model.domains.TaskLevel;
 import br.com.leonardojgs.model.domains.TaskPriority;
 import br.com.leonardojgs.model.domains.Task.TaskStatus;
-import br.com.leonardojgs.model.vos.TaskList;
+import br.com.leonardojgs.model.vos.TaskListVO;
 import br.com.leonardojgs.services.TaskLevelService;
 import br.com.leonardojgs.services.TaskPriorityService;
 import br.com.leonardojgs.services.TaskService;
@@ -52,9 +52,9 @@ class TaskController {
 	@RequestMapping(method=RequestMethod.GET, value="/refresh")
 	@ResponseBody
 	ResponseEntity listTasksTable(){
-		TaskList taskList = new TaskList();
+		TaskListVO taskList = new TaskListVO();
 		taskList.addAll(taskService.findAll());
-		new ResponseEntity<TaskList>(taskList, HttpStatus.OK);
+		new ResponseEntity<TaskListVO>(taskList, HttpStatus.OK);
 	}
 
 	@RequestMapping(method=RequestMethod.POST)
